@@ -8,6 +8,10 @@ or
 `vite requires Node.js >=20.19.0`  
 please **upgrade your Node.js version** before running `npm run dev`.
 
+> ℹ️ **Automatic Node version check in dev script:**  
+> When you run `npm run dev`, it automatically checks your Node.js version and exits with a clear error if it's below 20.19.0.  
+> See below for upgrade instructions.
+
 You can check your Node.js version with:
 ```bash
 node --version
