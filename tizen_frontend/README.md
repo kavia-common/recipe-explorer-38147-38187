@@ -8,7 +8,7 @@
 > `vite requires Node.js >=20.19.0`  
 > **You MUST upgrade Node.js to version 20.19.0 or higher before running `npm run dev`.**
 >  
-> The dev script (`npm run dev`) has an automatic version check and will exit with a clear error if your Node version is too old.
+> The dev, build, and preview scripts have an automatic version check (`predev`) and will exit with a clear error if your Node version is too old.
 
 **How to Fix Build Failure:**  
 1. Check your Node version:
@@ -24,7 +24,21 @@
    ```bash
    npm run dev
    ```
-   The dev server should start successfully with Node 20.19.0 or newer.
+   The dev server should start successfully with Node 20.19.0 or newer, and your local preview should show up on port 3000.
+
+**Verification for Future Agents/Users:**  
+- If you attempt to start the dev server with Node < 20.19.0, the process will exit with an error from `scripts/check-node-version.cjs` before Vite runs.
+- Build, preview, and other critical scripts also use this version check (`predev`).
+- To verify correct setup:
+  1. Run `node --version`, confirm output is `v20.19.0` or higher.
+  2. Run `npm run dev` from the project root (`tizen_frontend`).  
+      - The server should start without Node version errors and output should show a local preview URL (usually http://localhost:3000).
+  3. If startup fails with a Node version error, repeat the upgrade steps above.
+
+**No code workaround exists for Node < 20.19.0**—upgrade is required.  
+Once Node is upgraded, the blocking issue is resolved and the dev server launches normally.
+
+---
 
 ---
 
