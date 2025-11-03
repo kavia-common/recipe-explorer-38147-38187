@@ -1,9 +1,9 @@
-/* eslint-disable */
-#!/usr/bin/env node
+'use strict';
 
 /**
  * Checks if the current Node.js version meets minimum requirements for Vite (>=20.19.0).
  * Exits with a clear error and code 1 if requirements are not met.
+ * This script runs via 'node' explicitly. Using CommonJS to ensure compatibility.
  */
 
 const MIN_NODE_VERSION = [20, 19, 0];
@@ -21,10 +21,10 @@ function versionCompare(a, b) {
 
 if (versionCompare(current, MIN_NODE_VERSION) < 0) {
     console.error(
-        `ERROR: Node.js version ${process.versions.node} detected.\n` +
-        `Vite requires Node.js >=${MIN_NODE_VERSION.join('.')}.\n` +
+        `\nERROR: Node.js version ${process.versions.node} detected.\n` +
+        `Vite requires Node.js >=${MIN_NODE_VERSION.join('.')}\n` +
         `Please upgrade your Node.js version (e.g. using nvm) before running the dev server.\n` +
-        `See ./README.md for quick upgrade instructions.`
+        `See ./README.md for quick upgrade instructions.\n`
     );
     process.exit(1);
 }
