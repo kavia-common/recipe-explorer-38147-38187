@@ -10,6 +10,13 @@
 >  
 > The dev, build, and preview scripts have an automatic version check (`predev`) and will exit with a clear error if your Node version is too old.
 
+---
+
+## ⚠️ Instructions for Future Agents/Users ⚠️
+
+The build/server will **fail immediately** if Node.js version is less than 20.19.0. This is by design due to Vite's engine requirements.  
+**No code changes to this repo can resolve the issue. Only an environment upgrade (Node.js >= 20.19.0) will unblock the project.**
+
 **How to Fix Build Failure:**  
 1. Check your Node version:
    ```bash
