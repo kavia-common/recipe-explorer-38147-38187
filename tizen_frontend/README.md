@@ -1,5 +1,8 @@
 # React + Vite
 
+**Important:** This project requires Node.js version 20.19.0 or newer to run Vite successfully.  
+If you encounter errors about the crypto module or version incompatibility, upgrade Node.js before running `npm run dev`.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
