@@ -1,16 +1,68 @@
 # React + Vite
 
-**Critical Node.js Requirement:**  
-> 🚨 This project requires **Node.js version 20.19.0 or newer** for Vite to work.  
-> If you see errors such as  
-> `TypeError: crypto.hash is not a function`  
-> or  
-> `vite requires Node.js >=20.19.0`  
-> **You MUST upgrade Node.js to version 20.19.0 or higher before running `npm run dev`.**
->  
-> The dev, build, and preview scripts have an automatic version check (`predev`) and will exit with a clear error if your Node version is too old.
+---
+
+## 🚨 CRITICAL: NODE.JS REQUIREMENT 🚨
+
+**Vite and this project _require_ Node.js version >= 20.19.0.**  
+Build and dev WILL FAIL on Node < 20.19.0 due to Vite engine requirements.
+
+**Symptoms of Failure (with older Node.js):**
+- `TypeError: crypto.hash is not a function`
+- `vite requires Node.js >=20.19.0`
+- Immediate exit from `predev` with a clear error
+
+**How to Fix: Upgrade your Node.js version**
+
+1. **Check Node version:**
+   ```bash
+   node --version
+   # Output must be >= 20.19.0
+   ```
+2. **Upgrade Node.js (recommended: nvm):**
+   ```bash
+   nvm install 20.19.0
+   nvm use 20.19.0
+   ```
+3. **Verify & Start Dev Server:**
+   ```bash
+   node --version         # Should show >= 20.19.0
+   npm run dev            # Should start on port 3000, NO version error
+   ```
+
+**Fail-fast checks:**
+- The scripts (`dev`, `build`, `preview`) call `npm run predev`, which runs **scripts/check-node-version.cjs**.
+- If Node < 20.19.0, startup fails with a loud, clear error before Vite runs.
 
 ---
+
+If you see a version warning:
+- **No code fix is possible. You MUST upgrade your environment and restart.**
+
+**Verification steps:**
+1. Run `node --version`. Confirm you have **v20.19.0** or newer.
+2. Run `npm run dev` from this folder. The server should start and render a local preview URL (http://localhost:3000).
+3. If you see a Node version error on start, **repeat upgrade steps above.**
+
+**No workaround exists for old Node versions.**  
+Once upgraded, normal build/dev flows resume.
+
+---
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
 ## ⚠️ Instructions for Future Agents/Users ⚠️
 
