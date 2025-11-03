@@ -4,42 +4,103 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: #000;
-  color: #fff;
+  justify-content: flex-start;
+  background: #f9fafb;
+  color: #111827;
+  font-family: 'Samsung Sharp Sans', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-h1 {
-  font-size: 72px;
-  margin-bottom: 60px;
+.ocean-theme {
+  background: #f9fafb;
+  color: #111827;
 }
 
-.content {
-  text-align: center;
+.top-bar {
+  width: 100%;
+  height: 120px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px 0 rgba(29, 78, 216, 0.08);
+  border-radius: 0 0 28px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  position: relative;
+  z-index: 20;
+  border-bottom: 2px solid #2563EB18;
+}
+
+.categories-bar {
+  margin-top: 24px;
+}
+
+.category-chip {
+  cursor: pointer;
+  user-select: none;
+}
+
+.category-chip:focus {
+  outline: 3px solid #2563EB;
+}
+
+.recipes-grid {
+  margin-top: 26px;
+}
+
+.recipe-card {
+  transition: all 0.22s;
+  background: #fff;
+}
+
+.recipe-card:focus, .recipe-card[tabindex="0"] {
+  outline: 3.5px solid #2563EB;
+}
+
+.recipe-card img {
+  transition: box-shadow 0.2s;
+}
+
+.recipe-detail-modal {
+  animation: fadein 0.24s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.favorites-grid {
+  margin-top: 32px;
 }
 
 button {
   font-size: 32px;
-  padding: 20px 60px;
-  border-radius: 10px;
-  border: 3px solid #666;
-  background: #222;
+  padding: 18px 48px;
+  border-radius: 28px;
+  border: none;
+  background: #2563EB;
   color: #fff;
   cursor: pointer;
-  transition: all 0.2s;
+  box-shadow: 0 4px 16px 0 rgba(29, 78, 216, 0.13);
+  transition: all 0.15s;
 }
 
-button:hover,
-button:focus {
-  border-color: #00aaff;
-  background: #00aaff;
-  color: #000;
-  transform: scale(1.1);
-  outline: none;
+button:focus, button:active {
+  outline: 2.5px solid #2563EB;
 }
 
-p {
-  margin-top: 30px;
-  font-size: 24px;
-  color: #888;
+button.category-chip {
+  box-shadow: 0 2px 8px #2563EB11;
 }
+
+input[type="text"], input[type="search"] {
+  font-size: 36px;
+  border-radius: 28px;
+}
+
+::-webkit-input-placeholder { color: #999; }
+::-moz-placeholder { color: #999; }
+:-ms-input-placeholder { color: #999; }
+::placeholder { color: #999; }
