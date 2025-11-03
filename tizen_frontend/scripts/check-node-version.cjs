@@ -23,8 +23,13 @@ if (versionCompare(current, MIN_NODE_VERSION) < 0) {
     console.error(
         `\nERROR: Node.js version ${process.versions.node} detected.\n` +
         `Vite requires Node.js >=${MIN_NODE_VERSION.join('.')}\n` +
-        `Please upgrade your Node.js version (e.g. using nvm) before running the dev server.\n` +
-        `See ./README.md for quick upgrade instructions.\n`
+        `\n🚨 CRITICAL: No code workaround exists for Node < ${MIN_NODE_VERSION.join('.')}.\n` +
+        `You MUST upgrade your Node.js environment (see instructions below).\n` +
+        `\nHow to Fix:\n` +
+        `  - Upgrade Node.js (recommended: use nvm).\n` +
+        `  - See ./README.md for quick upgrade instructions.\n` +
+        `\nOnce you upgrade to Node ${MIN_NODE_VERSION.join('.')} or newer, restart your dev server and the build will succeed.\n` +
+        `\nFor support, see project instructions in README.md.\n`
     );
     process.exit(1);
 }

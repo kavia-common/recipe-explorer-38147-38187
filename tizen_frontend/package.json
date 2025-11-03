@@ -10,8 +10,8 @@
     "predev": "node ./scripts/check-node-version.cjs",
     "dev": "npm run predev && vite",
     "build": "npm run predev && vite build",
-    "lint": "eslint .",
     "preview": "npm run predev && vite preview",
+    "lint": "eslint .",
     "build:tizen": "vite build",
     "package:tizen": "cd dist && zip -r ../app.wgt * ../config.xml"
   },
